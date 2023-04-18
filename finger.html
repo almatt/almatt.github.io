@@ -1,110 +1,48 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-    // Initialize the agent at application startup.
-    const fpPromise = import('https://fpjscdn.net/v3/CMkmDlV8g6kpfa6sY9E2')
-      .then(FingerprintJS => FingerprintJS.load({
-        region: "eu"
-      }))
-
-    // Get the visitor identifier when you need it.
-    fpPromise
-      .then(fp => fp.get())
-      .then(result => {
-        // This is the visitor identifier:
-        const visitorId = result.visitorId
-        console.log(visitorId)
-      })
-  </script>
-    <!--
-    <script>
-        (function (p, a, y, b, o, x) {
-            o = p.createElement(a);
-            x = p.getElementsByTagName(a)[0];
-            o.async = 1;
-            o.src = 'https://widget.paybox.money/v1/paybox/pbwidget.js?d=9.09.2022 14:24:51'
-            x.parentNode.insertBefore(o, x);
-        })(document, 'script');
-    </script>
-    <script src="https://api.paybox.money/client_script.js"></script> -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-<!--     <button onclick="pay(100)">Оплатить</button>
- <script>
-          function pay(amount) {
-            var data = {
-                token: "GD6V1FisqGaETHMx1tOMxQLjs6PiKN0F",
-                payment: {
-                    order: "1asdasd asdasdasdas213 31212",
-                    amount: "10",
-                    currency: "KZT",
-                    description: "Описание заказа",
-                    param1: "string",
-                    param2: "string",
-                    param3: "string",
-                    options: {
-                        callbacks: {},
-                        custom_params: {},
-                        user: {
-                            ip: "192.168.1.1",
-                            email: "user@test1.com",
-                            phone: "77777777777",
-                        }
-                    }
-                },
-                successCallback: function (payment) {
-                    console.log(payment);
-                },
-                errorCallback: function (payment) {
-                    console.log(payment);
-                }
-            }
-            var paybox = new PayBox(data);
-            paybox.create();
-        }
-    </script> -->
-    
-<!--     <div id="myapplepay"></div>
-    
-    <script src="./pay-buttons.js"></script>
-    
-    <script>
-        window.onload = () => {
-        function success(r) {
-                alert('success', JSON.stringify(r));
-            }
-            function error(r) {
-                alert('error', JSON.stringify(r));
-            }
-            function canMake() {
-                alert('canMake');
-            }
-            function cantMake(err) {
-                alert(JSON.stringify(err));
-            }
-            window.PayBoxPayButtons(
-                'myapplepay',
-                '84VNru4BfZlmyuxQkW6sbxVWmHE7MBpk', // qZ0iGnvGZTMuU0RTdBHsCXe9XPPG2auw CdLAdlGDTVZwvPhOBNsY5BotwMgVIN8b
-                {
-                    amount: 100, description: 'aasdasd asdssd'
-                },
-                success,
-                error,
-                canMake,
-                cantMake
-            );
-        };
-         async function a() {
-            const response = await window.ApplePaySession.canMakePaymentsWithActiveCard('merchant.money.paybox.customer');
-       
-            alert(response);
-       }
-        
-        a(); -->
-        
-    </script>
+<script>
+  window.onload = async function() {
+    const result = await window.initFingerprint();
+
+    console.log(result);
+  }
+
+//   async function hash(sensitiveInfo) {
+//   hashBytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(sensitiveInfo));
+//   return Array.prototype.map
+//     .call(new Uint8Array(hashBytes), (byte) => byte.toString(16).padStart(2, '0'))
+//     .join('');
+// }
+// window.onload = async function() {
+// const fpPromise = await import('https://almatt.online/rc9ta9dja6Ihbdp7/g4ACsly0VA4hWAgj?apiKey=CMkmDlV8g6kpfa6sY9E2')
+//   .then(FingerprintJS => FingerprintJS.load({
+//     endpoint: "https://almatt.online/rc9ta9dja6Ihbdp7/a4U9dpAjdncN5dbx?region=eu",
+//     region: "eu"
+//   }));
+
+//   console.log(fpPromise);
+//   console.log(222);
+
+    // const fp = await fpPromise;
+    // const date = new Date().toISOString();
+    // const hashTag = await hash(location.href + '.' + date);
+
+    // const response = await fp.get({
+    //   tag: {
+    //     hash: hashTag,
+    //     ht: date
+    //   }
+    // });
+  // }
+</script>
+
+
+<script src="./fingerprint/fp.js"></script>
 </body>
 </html>
