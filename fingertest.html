@@ -9,11 +9,11 @@
   <a target="_blank" href="https://api.unido.kz/payment.php?pg_merchant_id=544665&pg_amount=15&pg_currency=KZT&pg_description=test&pg_salt=YDrAaG9DC7fFdZh0&pg_sig=031a917f676013497f57b7a62730ca6d">Оплатить</a>
   <script>
     window.onload = async function() {
-      const result = await window.initFingerprint();
-      const result2 = await window.initFingerprint();
-
-      console.log(result);
-      console.log(result2);
+      setInterval(function(){
+        const result = await window.initFingerprint();
+        console.log(result);
+      }, 500)
+     
     }
   </script>
   
