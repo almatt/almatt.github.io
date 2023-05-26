@@ -11,7 +11,7 @@
     window.onload = async function() {
       //setInterval(async function() {
         const result = await window.initFingerprint();
-        var today = new Date();
+        var d = new Date();
         //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var time = [('0' + d.getHours()).slice(-2), ('0' + d.getMinutes()).slice(-2), ('0' + d.getSeconds()).slice(-2)].join(':');
         console.log(result.requestId +" "+time);
