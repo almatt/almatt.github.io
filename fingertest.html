@@ -6,21 +6,12 @@
   <title>Document</title>
 </head>
 <body>
-  <a target="_blank" href="https://api.unido.kz/payment.php?pg_merchant_id=544665&pg_amount=15&pg_currency=KZT&pg_description=test&pg_salt=YDrAaG9DC7fFdZh0&pg_sig=031a917f676013497f57b7a62730ca6d">Оплатить</a>
   <script>
     window.onload = async function() {
-      //setInterval(async function() {
         const result = await window.initFingerprint();
-        var d = new Date();
-        //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var time = [('0' + d.getHours()).slice(-2), ('0' + d.getMinutes()).slice(-2), ('0' + d.getSeconds()).slice(-2)].join(':');
-        console.log(result.requestId +" "+time);
-      //}, 500);
-
+        console.log(result);
     }
   </script>
-  
-
-  <script src="https://cdn.freedompay.money/fingerprint/fingerprint-1.0.0.js?t=qwe"></script>
+  <script src="https://cdn.unido.kz/fingerprint/fingerprint-1.0.0.js"></script>
 </body>
 </html>
