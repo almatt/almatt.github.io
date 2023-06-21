@@ -6,12 +6,31 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
+<!--   <script>
     window.onload = async function() {
         const result = await window.initFingerprint();
         console.log(result);
     }
   </script>
-  <script src="https://cdn.unido.kz/fingerprint/fingerprint-1.0.0.js"></script>
+  <script src="https://cdn.unido.kz/fingerprint/fingerprint-1.0.0.js"></script> -->
+
+  <script>
+  // Initialize the agent on page load.
+  const fpPromise = import('https://secure.unido.kz/iS0ekz5Q8abYC3Zj/vw6vm1A4UPtdxVSG?apiKey=e2cKjH4LENuZg7ySQok6')
+    .then(FingerprintJS => FingerprintJS.load({
+      endpoint: "https://secure.unido.kz/iS0ekz5Q8abYC3Zj/GiOzDKicc21kZ79j?region=eu",
+      region: "eu"
+    }))
+
+  // Get the visitorId when you need it.
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => {
+      const visitorId = result.visitorId
+      console.log(visitorId)
+    })
+
+</script>
+  
 </body>
 </html>
