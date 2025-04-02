@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        (function (p, a, y, b, o, x) {
+            o = p.createElement(a);
+            x = p.getElementsByTagName(a)[0];
+            o.async = 1;
+            o.src = 'https://staging-cdn.freedompay.kz/widget/pbwidget.js?' + 1 * new Date();
+            x.parentNode.insertBefore(o, x);
+        })(document, 'script');
+    </script>
+<!--     <script src="https://api.paybox.money/client_script.js"></script> -->
+</head>
+<body>
+ <button onclick="pay(100)">Оплатить 100</button>
+ <script>
+          function pay(amount) {
+            var data = {
+                token: "wiM6LrRtGsEQ5QTsdZsCPxbEvxy6vA8R",
+                payment: {
+                    order: "testing123231",
+                    amount: "10",
+                    currency: "KZT",
+                    description: "Описание заказа test",
+                    param1: "string",
+                    param2: "string",
+                    param3: "string",
+                    options: {
+                        callbacks: {},
+                        custom_params: {
+                            add_discount:1,
+                        },
+                        user: {
+                            ip: "192.168.1.1",
+                            email: "user@test1.com",
+                            phone: "77777777777",
+                        }
+                    }
+                },
+                successCallback: function (payment) {
+                    console.log(payment);
+                },
+                errorCallback: function (payment) {
+                    console.log(payment);
+                }
+            }
+
+            var fp = new PayBox(data);
+            fp.create();
+        }
+    </script>
+    
+<!--     <div id="myapplepay"></div>
+    
+    <script src="./pay-buttons.js"></script>
+    
+    <script>
+        window.onload = () => {
+        function success(r) {
+                alert('success', JSON.stringify(r));
+            }
+            function error(r) {
+                alert('error', JSON.stringify(r));
+            }
+            function canMake() {
+                alert('canMake');
+            }
+            function cantMake(err) {
+                alert(JSON.stringify(err));
+            }
+            window.PayBoxPayButtons(
+                'myapplepay',
+                '84VNru4BfZlmyuxQkW6sbxVWmHE7MBpk', // qZ0iGnvGZTMuU0RTdBHsCXe9XPPG2auw CdLAdlGDTVZwvPhOBNsY5BotwMgVIN8b
+                {
+                    amount: 100, description: 'aasdasd asdssd'
+                },
+                success,
+                error,
+                canMake,
+                cantMake
+            );
+        };
+         async function a() {
+            const response = await window.ApplePaySession.canMakePaymentsWithActiveCard('merchant.money.paybox.customer');
+       
+            alert(response);
+       }
+        
+        a(); -->
+        
+    </script>
+</body>
+</html>
