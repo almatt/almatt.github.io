@@ -5,6 +5,7 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
     window.addEventListener('beforeunload', (event) => {
     const message = "Вы уверены, что хотите покинуть страницу? Несохраненные данные будут потеряны.";
 
@@ -13,5 +14,6 @@
 
     return message;
 });
+        </script>
 </body>
 </html>
