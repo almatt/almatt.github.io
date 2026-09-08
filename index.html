@@ -1,96 +1,246 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        (function (p, a, y, b, o, x) {
-            o = p.createElement(a);
-            x = p.getElementsByTagName(a)[0];
-            o.async = 1;
-            o.src = 'https://cdn.freedompay.uz/checkout/checkout.js?' + 1 * new Date();
-            x.parentNode.insertBefore(o, x);
-        })(document, 'script');
-    </script>
-<!--     <script src="https://api.paybox.money/client_script.js"></script> -->
-</head>
-<body>
- <button onclick="pay(100)">Оплатить 100</button>
- <script>
-          function pay(amount) {
-            var data = {
-                token: "wiM6LrRtGsEQ5QTsdZsCPxbEvxy6vA8R",
-                payment: {
-                    order: "testing123231",
-                    amount: "10",
-                    currency: "KZT",
-                    description: "Описание заказа test",
-                    param1: "string",
-                    param2: "string",
-                    param3: "string",
-                    options: {
-                        callbacks: {},
-                        custom_params: {
-                            add_discount:1,
-                        },
-                        user: {
-                            ip: "192.168.1.1",
-                            email: "user@test1.com",
-                            phone: "77777777777",
-                        }
-                    }
-                },
-                successCallback: function (payment) {
-                    console.log(payment);
-                },
-                errorCallback: function (payment) {
-                    console.log(payment);
-                }
-            }
+<!doctype html>
+<html lang="en" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="theme-color" content="#f2f4f6" />
+    <!--    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+    <!--Приоритетная загрузка шрифта-->
+    <link rel="preload" href="https://cdn.freedompay.kz/ppv3/assets/InterVariable.DiVDrmQJ.woff2" as="font" type="font/woff2" crossorigin />
+    <title>Платежная страница</title>
+    <style>
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        min-width: 460px;
+        min-height: 90vh;
+        overflow: hidden;
+      }
 
-            var fp = new Checkout(data);
-            fp.create();
+      @media (max-width: 520px) {
+        .wrapper {
+          padding: 32px 16px;
+          min-width: 80%;
         }
-    </script>
-    
-<!--     <div id="myapplepay"></div>
-    
-    <script src="./pay-buttons.js"></script>
-    
+      }
+
+      .animatedStroke {
+        animation: gradientShift 200ms linear infinite;
+        stroke: url(#animatedGradient);
+        stroke-width: 3.92612;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          stop-color: #054425;
+        }
+        33% {
+          stop-color: #eaf3f0;
+        }
+        66% {
+          stop-color: #054425;
+        }
+        100% {
+          stop-color: #eaf3f0;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="https://cdn.freedompay.kz/ppv3/assets/modulepreload-polyfill.B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="https://cdn.freedompay.kz/ppv3/assets/vendor-react-core.wYyUjMVE.js"></script>
+    <script type="module" crossorigin src="https://cdn.freedompay.kz/ppv3/assets/vendor-react-dom-core.BBV-C8G1.js"></script>
+    <script type="module" crossorigin src="https://cdn.freedompay.kz/ppv3/assets/index.D3FgUhUQ.js"></script>
+    <script type="module" crossorigin src="https://cdn.freedompay.kz/ppv3/assets/SecuredPaymentInfo.Bxa6KjtE.js"></script>
+    <script type="module" crossorigin src="https://cdn.freedompay.kz/ppv3/main/index.CmLlmRw5.js"></script>
+    <link rel="stylesheet" crossorigin href="https://cdn.freedompay.kz/ppv3/assets/index.BrIGqVmU.css">
+    <link rel="stylesheet" crossorigin href="https://cdn.freedompay.kz/ppv3/assets/SecuredPaymentInfo.BEE4NmMO.css">
+    <link rel="stylesheet" crossorigin href="https://cdn.freedompay.kz/ppv3/assets/index.C1UdtEuh.css">
+    <link rel="stylesheet" crossorigin href="https://cdn.freedompay.kz/ppv3/assets/main.BZYSXWr3.css">
+  </head>
+  <body>
+    <div id="root">
+      <div class="wrapper">
+        <svg width="161" height="171" viewBox="0 0 161 171" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient
+              id="animatedGradient"
+              x1="80.316"
+              y1="44.0001"
+              x2="80.316"
+              y2="124.093"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0A7741">
+                <animate
+                  attributeName="stop-color"
+                  values="#0A7741;#72E8C6;#EAF3F0;#0A7741"
+                  dur="6s"
+                  repeatCount="indefinite" />
+              </stop>
+              <stop offset="50%" stop-color="#72E8C6">
+                <animate
+                  attributeName="stop-color"
+                  values="#72E8C6;#EAF3F0;#0A7741;#72E8C6"
+                  dur="6s"
+                  repeatCount="indefinite" />
+              </stop>
+              <stop offset="100%" stop-color="#EAF3F0">
+                <animate
+                  attributeName="stop-color"
+                  values="#EAF3F0;#0A7741;#72E8C6;#EAF3F0"
+                  dur="6s"
+                  repeatCount="indefinite" />
+              </stop>
+            </linearGradient>
+          </defs>
+
+          <g filter="url(#filter0_d_59_15)">
+            <path
+              d="M73.1641 97.5697C73.1641 97.548 73.1816 97.5304 73.2033 97.5304H85.1745C96.3489 97.5033 98.4231 91.5541 98.4231 84.1812V79.8626C98.4231 79.8409 98.4056 79.8234 98.3839 79.8234H73.2033C73.1816 79.8234 73.1641 79.8058 73.1641 79.7841V65.3007C73.1641 65.279 73.1816 65.2614 73.2033 65.2614H98.419C108.424 65.1255 111.674 59.2814 111.674 51.9062V65.1212C111.674 109.131 80.5741 120.146 80.3172 120.236C80.3095 120.239 80.3123 120.236 80.3045 120.233C80.1024 120.172 77.1731 119.257 73.1828 116.771C73.1713 116.764 73.1641 116.751 73.1641 116.738V97.5697ZM45.3735 65.1226C45.3735 89.9972 54.4517 104.543 62.0669 112.364C70.4781 121.001 78.9432 123.567 79.3003 123.672L80.3944 123.996C80.4023 123.999 80.4107 123.999 80.4185 123.996L81.4926 123.621C81.8428 123.501 90.2008 120.558 98.5941 111.717C106.196 103.713 115.259 89.1322 115.259 65.1226V44.0393C115.259 44.0176 115.241 44 115.219 44H45.4128C45.3911 44 45.3735 44.0176 45.3735 44.0393V65.1226Z"
+              fill="white" />
+            <path
+              d="M73.1641 97.5697C73.1641 97.548 73.1816 97.5304 73.2033 97.5304H85.1745C96.3489 97.5033 98.4231 91.5541 98.4231 84.1812V79.8626C98.4231 79.8409 98.4056 79.8234 98.3839 79.8234H73.2033C73.1816 79.8234 73.1641 79.8058 73.1641 79.7841V65.3007C73.1641 65.279 73.1816 65.2614 73.2033 65.2614H98.419C108.424 65.1255 111.674 59.2814 111.674 51.9062V65.1212C111.674 109.131 80.5741 120.146 80.3172 120.236C80.3095 120.239 80.3123 120.236 80.3045 120.233C80.1024 120.172 77.1731 119.257 73.1828 116.771C73.1713 116.764 73.1641 116.751 73.1641 116.738V97.5697ZM45.3735 65.1226C45.3735 89.9972 54.4517 104.543 62.0669 112.364C70.4781 121.001 78.9432 123.567 79.3003 123.672L80.3944 123.996C80.4023 123.999 80.4107 123.999 80.4185 123.996L81.4926 123.621C81.8428 123.501 90.2008 120.558 98.5941 111.717C106.196 103.713 115.259 89.1322 115.259 65.1226V44.0393C115.259 44.0176 115.241 44 115.219 44H45.4128C45.3911 44 45.3735 44.0176 45.3735 44.0393V65.1226Z"
+              stroke="url(#paint0_linear_59_15)"
+              stroke-width="3.92612"
+              class="animatedStroke" />
+          </g>
+          <g filter="url(#filter1_i_59_15)">
+            <path
+              d="M80.4435 122.573C80.2941 122.63 80.1753 122.633 80.0236 122.583C77.192 121.643 46.9157 110.511 46.9157 64.2146V46.3057C46.9157 45.884 47.2575 45.5422 47.6792 45.5422H112.792C113.213 45.5422 113.555 45.884 113.555 46.3057V64.1179C113.555 108.866 83.2524 121.498 80.4435 122.573Z"
+              fill="url(#paint1_linear_59_15)" />
+          </g>
+          <path
+            d="M47.6794 45.9241H112.792C113.002 45.9242 113.174 46.0951 113.174 46.3059V64.1174C113.174 108.636 83.0484 121.168 80.3073 122.217C80.2633 122.234 80.2392 122.236 80.2253 122.237C80.2114 122.237 80.1883 122.235 80.1442 122.22C78.7659 121.762 70.5545 118.773 62.6901 110.15C54.8334 101.535 47.2976 87.2702 47.2976 64.2141V46.3059C47.2976 46.0951 47.4686 45.9241 47.6794 45.9241Z"
+            stroke="url(#paint2_linear_59_15)"
+            stroke-opacity="0.2"
+            stroke-width="0.763451" />
+          <g filter="url(#filter2_ii_59_15)">
+            <path
+              d="M99.4539 64.3113H73.3685C72.9468 64.3113 72.605 64.6531 72.605 65.0748V79.0275C72.605 79.4492 72.9469 79.791 73.3685 79.791H98.6905C99.1121 79.791 99.4539 80.1328 99.4539 80.5544V84.4349C99.4539 92.2715 97.2326 98.5601 85.3534 98.5601H73.3685C72.9469 98.5601 72.605 98.9019 72.605 99.3236V118.545C72.605 118.812 72.744 119.059 72.9725 119.196C76.5248 121.319 79.2125 122.306 79.9991 122.573C80.1522 122.625 80.2945 122.63 80.4455 122.572C83.2708 121.49 113.554 108.852 113.554 64.1178V50.0894C113.554 57.9259 110.078 64.1178 99.4539 64.3113Z"
+              fill="#03532F" />
+          </g>
+          <defs>
+            <filter
+              id="filter0_d_59_15"
+              x="0.223091"
+              y="0.419945"
+              width="160.186"
+              height="170.299"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dy="1.57045" />
+              <feGaussianBlur stdDeviation="21.5937" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.65098 0 0 0 0 0.411765 0 0 0 1 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_59_15" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_59_15" result="shape" />
+            </filter>
+            <filter
+              id="filter1_i_59_15"
+              x="46.9157"
+              y="45.5422"
+              width="66.6393"
+              height="80.13"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dy="3.0538" />
+              <feGaussianBlur stdDeviation="1.5269" />
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_59_15" />
+            </filter>
+            <filter
+              id="filter2_ii_59_15"
+              x="70.3147"
+              y="50.0894"
+              width="46.2935"
+              height="75.5785"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dx="3.0538" dy="3.0538" />
+              <feGaussianBlur stdDeviation="1.5269" />
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_59_15" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dx="-2.29035" />
+              <feGaussianBlur stdDeviation="1.5269" />
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.22 0" />
+              <feBlend mode="normal" in2="effect1_innerShadow_59_15" result="effect2_innerShadow_59_15" />
+            </filter>
+            <linearGradient
+              id="paint0_linear_59_15"
+              x1="80.316"
+              y1="44.0001"
+              x2="80.316"
+              y2="124.093"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#0A7741" />
+              <stop offset="0.370192" stop-color="#72E8C6" />
+              <stop offset="1" stop-color="#EAF3F0" />
+            </linearGradient>
+            <linearGradient
+              id="paint1_linear_59_15"
+              x1="99.5939"
+              y1="83.7148"
+              x2="46.9157"
+              y2="45.5422"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#4FAF3B" />
+              <stop offset="1" stop-color="#178169" />
+            </linearGradient>
+            <linearGradient
+              id="paint2_linear_59_15"
+              x1="80.2354"
+              y1="45.5422"
+              x2="80.2354"
+              y2="122.65"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="white" stop-opacity="0.5" />
+              <stop offset="1" stop-color="white" stop-opacity="0.3" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div id="modal-root"></div>
     <script>
-        window.onload = () => {
-        function success(r) {
-                alert('success', JSON.stringify(r));
-            }
-            function error(r) {
-                alert('error', JSON.stringify(r));
-            }
-            function canMake() {
-                alert('canMake');
-            }
-            function cantMake(err) {
-                alert(JSON.stringify(err));
-            }
-            window.PayBoxPayButtons(
-                'myapplepay',
-                '84VNru4BfZlmyuxQkW6sbxVWmHE7MBpk', // qZ0iGnvGZTMuU0RTdBHsCXe9XPPG2auw CdLAdlGDTVZwvPhOBNsY5BotwMgVIN8b
-                {
-                    amount: 100, description: 'aasdasd asdssd'
-                },
-                success,
-                error,
-                canMake,
-                cantMake
-            );
-        };
-         async function a() {
-            const response = await window.ApplePaySession.canMakePaymentsWithActiveCard('merchant.money.paybox.customer');
-       
-            alert(response);
-       }
-        
-        a(); -->
-        
+      (function () {
+        const theme = new URLSearchParams(window.location.search.replaceAll('&amp;', '&')).get('th');
+
+        if (theme === 'd') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000');
+        }
+      })();
     </script>
-</body>
+  </body>
 </html>
